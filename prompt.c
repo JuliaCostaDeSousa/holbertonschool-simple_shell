@@ -8,21 +8,15 @@
 
 int main(void)
 {
-	char *buffer;
+	char *buffer = NULL;
 	size_t bufsize = 32;
-	size_t characters;
-
-	buffer = (char *)malloc(bufsize * sizeof(char));
-	if (buffer == NULL)
-	{
-		perror("Unable to allocate buffer");
-		exit(1);
-	}
+	ssize_t characters;
 
 	printf("$ ");
 	characters = getline(&buffer, &bufsize, stdin);
-	printf("%zu characters were read.\n", characters);
-	printf("You typed: '%s'\n", buffer);
+	if (characters != -1)
+	printf("%s", buffer);
+	free(buffer);
 
 	return (0);
 }
