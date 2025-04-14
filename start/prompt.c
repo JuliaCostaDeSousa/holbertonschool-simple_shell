@@ -7,7 +7,6 @@
  * @argv: value og argument
  * Return: Always 0.
  */
-
 int main(void)
 {
     char *buffer = NULL;
