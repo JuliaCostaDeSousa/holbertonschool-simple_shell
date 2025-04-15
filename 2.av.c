@@ -8,15 +8,15 @@
 
 int main(void)
 {
-	char str[] = "Geeks-for-Geeks";
+	char str[] = "Geeks for Geeks";
 	char *token;
 
-	token = strtok(str, "-");
+	token = strtok(str, " ");
 
 	while (token != NULL)
 	{
 		printf("%s\n", token);
-		token = strtok(NULL, " - ");
+		token = strtok(NULL, " ");
 	}
 
 	return (0);
