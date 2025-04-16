@@ -20,6 +20,7 @@ char **split_string(char *buffer, char *delimiter)
     temp_str = strdup(buffer);
     if (temp_str == NULL)
     return (NULL);
+    
     str = strtok(temp_str, delimiter);
     while (str != NULL)
     {
