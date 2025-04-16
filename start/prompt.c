@@ -15,7 +15,8 @@ int main(void)
 
     printf("$ ");
     read = getline(&buffer, &len, stdin);
-    if (read != -1)
+    if (read == -1)
+    return (-1);
     printf("%s", buffer);
     free(buffer);
     return (0);
