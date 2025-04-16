@@ -5,12 +5,13 @@
 /**
  * split_string - split a string
  * @buffer: string to split
+ * @delimiter: delimiter
  * Return: array of words
  */
-char **split_string(char *buffer)
+char **split_string(char *buffer, char *delimiter)
 {
     int count_word = 0, i = 0;
-    char *str, *temp_str, *separator = " ";
+    char *str, *temp_str;
     char **array;
 
     if (buffer == NULL)
@@ -19,11 +20,11 @@ char **split_string(char *buffer)
     temp_str = strdup(buffer);
     if (temp_str == NULL)
     return (NULL);
-    str = strtok(temp_str, separator);
+    str = strtok(temp_str, delimiter);
     while (str != NULL)
     {
         count_word++;
-        str = strtok(NULL, separator);
+        str = strtok(NULL, delimiter);
     }
     free (temp_str);
 
@@ -34,7 +35,7 @@ char **split_string(char *buffer)
     temp_str = strdup(buffer);
     if (temp_str == NULL)
     return (NULL);
-    str = strtok(temp_str, separator);
+    str = strtok(temp_str, delimiter);
     while (str != NULL)
     {
         array[i] = strdup(str);
@@ -46,7 +47,7 @@ char **split_string(char *buffer)
             free(array);
             return (NULL);
         }
-        str = strtok(NULL, separator);
+        str = strtok(NULL, delimiter);
         i++;
     }
     array[i] = NULL;
@@ -84,7 +85,7 @@ int main(void)
             buffer[read - 1] = '\0';
 
         // Séparer la chaîne en mots
-        char **words = split_string(buffer);
+        char **words = split_string(buffer, " ");
         if (words != NULL)
         {
             // Afficher les mots séparés
