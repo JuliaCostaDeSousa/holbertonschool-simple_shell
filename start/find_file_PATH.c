@@ -143,7 +143,7 @@ int main(int ac, char **av)
         return (1);
     }
 
-    if (ac < 2)
+    if (ac != 2)
     {
         printf("Usage: %s path_to_file ...\n", av[0]);
         return (1);

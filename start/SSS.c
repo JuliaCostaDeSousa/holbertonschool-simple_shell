@@ -102,7 +102,7 @@ int main(void)
                     argv[1] = NULL;
                     if (access(words[0], X_OK) == 0)
                     {
-                        if (execve(words[0], argv, environ) == -1)
+                        if (execve(argv[0], argv, environ) == -1)
                         {
                             printf("Echec de l'éxecution de la commande.\n");
                             perror("Error:");

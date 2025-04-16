@@ -5,7 +5,7 @@
 /**
  * split_string - split a string
  * @buffer: string to split
- * Return: array of char *
+ * Return: array of words
  */
 char **split_string(char *buffer)
 {
