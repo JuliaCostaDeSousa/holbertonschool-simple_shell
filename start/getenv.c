@@ -21,8 +21,6 @@ char *_getenv(const char *name)
     while (environ[i] != NULL)
     {
         ptr_equal = strchr(environ[i], '=');
-        if (ptr_equal == NULL)
-        return (NULL);
         equal_index = ptr_equal - environ[i];
 
         len_env = strlen(environ[i]);
@@ -36,33 +34,28 @@ char *_getenv(const char *name)
         var_nom[len_env - equal_index - 1] = '\0';
         if (strcmp(name, var_nom) == 0)
         return (var_valeur);
+        i++;
     }
 
     return (NULL);
 }
 
 
-
-
 /**
- * main - execve example
+ * main - getenv example
  *
  * Return: Always 0.
  */
 int main(int ac, char **av, char **env)
 {
-    extern char **environ;
-    int i = 0;
+    const char *env_var_name = "LS_COLORS";
+    char *env_var_value = NULL;
 
-    while (environ[i] != NULL)
-    {
-        printf("environ : %p\n", (void *)&environ[i]);
-        i++;
-    }
-    i = 0;
-    while (env[i] != NULL)
-    {
-        printf("env : %p\n", (void *)&env[i]);
-        i++;
-    }
+    env_var_value = _getenv(env_var_name);
+    if (env_var_value == NULL)
+    return (-1);
+    else
+    printf("%s = %s\n", env_var_name, env_var_value);
+
+    return (0);
 }
