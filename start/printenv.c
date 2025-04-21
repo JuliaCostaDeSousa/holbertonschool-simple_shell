@@ -10,8 +10,8 @@
  */
 int main(void)
 {
-    extern char **environ;
+	extern char **environ;
 
-    while (*environ != NULL)
-    printf("%s\n", *environ++);
+	while (*environ != NULL)
+	printf("%s\n", *environ++);
 }

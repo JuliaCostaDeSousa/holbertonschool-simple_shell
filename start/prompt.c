@@ -9,15 +9,15 @@
  */
 int main(void)
 {
-    char *buffer = NULL;
-    size_t len = 0;
-    ssize_t read;
+	char *buffer = NULL;
+	size_t len = 0;
+	ssize_t read;
 
-    printf("$ ");
-    read = getline(&buffer, &len, stdin);
-    if (read == -1)
-    return (-1);
-    printf("%s", buffer);
-    free(buffer);
-    return (0);
+	printf("$ ");
+	read = getline(&buffer, &len, stdin);
+	if (read == -1)
+	return (-1);
+	printf("%s", buffer);
+	free(buffer);
+	return (0);
 }

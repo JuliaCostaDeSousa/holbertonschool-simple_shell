@@ -12,87 +12,87 @@
  */
 char **split_string(char *buffer, char *delimiter)
 {
-    int count_word = 0, i = 0;
-    char *str, *temp_str;
-    char **array;
+	int count_word = 0, i = 0;
+	char *str, *temp_str;
+	char **array;
 
-    if (buffer == NULL)
-    return (NULL);
-    
-    temp_str = strdup(buffer);
-    if (temp_str == NULL)
-    return (NULL);
-    str = strtok(temp_str, delimiter);
-    while (str != NULL)
-    {
-        count_word++;
-        str = strtok(NULL, delimiter);
-    }
-    free (temp_str);
+	if (buffer == NULL)
+	return (NULL);
+	
+	temp_str = strdup(buffer);
+	if (temp_str == NULL)
+	return (NULL);
+	str = strtok(temp_str, delimiter);
+	while (str != NULL)
+	{
+		count_word++;
+		str = strtok(NULL, delimiter);
+	}
+	free (temp_str);
 
-    array = (char **)malloc(sizeof(char *) * (count_word + 1));
-    if (array == NULL)
-    return (NULL);
+	array = (char **)malloc(sizeof(char *) * (count_word + 1));
+	if (array == NULL)
+	return (NULL);
 
-    temp_str = strdup(buffer);
-    if (temp_str == NULL)
-    return (NULL);
-    str = strtok(temp_str, delimiter);
-    while (str != NULL)
-    {
-        array[i] = strdup(str);
-        if (array[i] == NULL)
-        {
-            for (int j = 0; j < i; j++)
-            free(array[j]);
+	temp_str = strdup(buffer);
+	if (temp_str == NULL)
+	return (NULL);
+	str = strtok(temp_str, delimiter);
+	while (str != NULL)
+	{
+		array[i] = strdup(str);
+		if (array[i] == NULL)
+		{
+			for (int j = 0; j < i; j++)
+			free(array[j]);
 
-            free(array);
-            return (NULL);
-        }
-        str = strtok(NULL, delimiter);
-        i++;
-    }
-    array[i] = NULL;
-    return (array);
+			free(array);
+			return (NULL);
+		}
+		str = strtok(NULL, delimiter);
+		i++;
+	}
+	array[i] = NULL;
+	return (array);
 }
 
 void free_array(char **array)
 {
-    int i = 0;
-    while (array[i] != NULL)
-    {
-        free(array[i]);  // Libérer chaque mot
-        i++;
-    }
-    free(array);  // Libérer le tableau lui-même
+	int i = 0;
+	while (array[i] != NULL)
+	{
+		free(array[i]);  // Libérer chaque mot
+		i++;
+	}
+	free(array);  // Libérer le tableau lui-même
 }
 
 void print_PATH(void)
 {
-    char **array_path = NULL;
-    char *path = getenv("PATH");
-    int i = 0;
+	char **array_path = NULL;
+	char *path = getenv("PATH");
+	int i = 0;
 
-    if (path == NULL)
-    {
-        printf("La variable PATH n'est pas définie.");
-        return;
-    }
+	if (path == NULL)
+	{
+		printf("La variable PATH n'est pas définie.");
+		return;
+	}
 
-    array_path = split_string(path, ":");
-    if (array_path == NULL)
-    return;
+	array_path = split_string(path, ":");
+	if (array_path == NULL)
+	return;
 
-    while(array_path[i] != NULL)
-    {
-        printf("%s\n", array_path[i]);
-        i++;
-    }
-    free_array(array_path);
+	while(array_path[i] != NULL)
+	{
+		printf("%s\n", array_path[i]);
+		i++;
+	}
+	free_array(array_path);
 }
 
 int main(void)
 {
-    print_PATH();
-    return (0);
+	print_PATH();
+	return (0);
 }
