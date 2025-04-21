@@ -5,8 +5,8 @@ void free_array(char **array)
 	int i = 0;
 	while (array[i] != NULL)
 	{
-		free(array[i]);  // Libérer chaque mot
+		free(array[i]);
 		i++;
 	}
-	free(array);  // Libérer le tableau lui-même
+	free(array);
 }

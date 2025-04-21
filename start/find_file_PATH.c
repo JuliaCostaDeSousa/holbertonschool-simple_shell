@@ -1,73 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
-
-
-/**
- * split_string - split a string
- * @buffer: string to split
- * @delimiter: delimiter
- * Return: array of words
- */
-char **split_string(char *buffer, char *delimiter)
-{
-	int count_word = 0, i = 0;
-	char *str, *temp_str;
-	char **array;
-
-	if (buffer == NULL)
-	return (NULL);
-	
-	temp_str = strdup(buffer);
-	if (temp_str == NULL)
-	return (NULL);
-	str = strtok(temp_str, delimiter);
-	while (str != NULL)
-	{
-		count_word++;
-		str = strtok(NULL, delimiter);
-	}
-	free (temp_str);
-
-	array = (char **)malloc(sizeof(char *) * (count_word + 1));
-	if (array == NULL)
-	return (NULL);
-
-	temp_str = strdup(buffer);
-	if (temp_str == NULL)
-	return (NULL);
-	str = strtok(temp_str, delimiter);
-	while (str != NULL)
-	{
-		array[i] = strdup(str);
-		if (array[i] == NULL)
-		{
-			for (int j = 0; j < i; j++)
-			free(array[j]);
-
-			free(array);
-			return (NULL);
-		}
-		str = strtok(NULL, delimiter);
-		i++;
-	}
-	array[i] = NULL;
-	return (array);
-}
-
-void free_array(char **array)
-{
-	int i = 0;
-	while (array[i] != NULL)
-	{
-		free(array[i]);  // Libérer chaque mot
-		i++;
-	}
-	free(array);  // Libérer le tableau lui-même
-}
+#include "main.h"
 
 /**
  * main - stat example
@@ -77,7 +8,7 @@ void free_array(char **array)
 int main(int ac, char **av)
 {
 	char **array_path = NULL;
-	char *path = getenv("PATH"), *new_path = NULL, *dossier = NULL;
+	char *path = getenv("PATH"), *new_path = NULL, *dossier = NULL, *path_copy, *dossier_copy, *new_dossier_copy;
 	unsigned int i, j, check_found = 0;
 	struct stat st;
 
@@ -93,7 +24,8 @@ int main(int ac, char **av)
 		return (1);
 	}
 	i = 1;
-	array_path = split_string(path, ":");
+	path_copy = strdup(path);
+	array_path = split_string(path_copy, ":");
 	while (av[i])
 	{
 		check_found = 0;
@@ -101,12 +33,16 @@ int main(int ac, char **av)
 
 		for (j = 0; array_path[j] != NULL; j++)
 		{
-			dossier = strcat(array_path[j], "/");
+			dossier_copy = strdup(array_path[j]);
+			dossier = strcat(dossier_copy, "/");
 			if (dossier == NULL)
 			return (1);
-			new_path = strcat(dossier, av[i]);
+			new_dossier_copy = strdup(dossier);
+			new_path = strcat(new_dossier_copy, av[i]);
 			if (new_path == NULL)
 			return (1);
+			printf("original path : %s\n", array_path[j]);
+			printf("new path : %s\n", new_path);
 			if (stat(new_path, &st) == 0)
 			{
 				check_found = 1;
@@ -114,7 +50,7 @@ int main(int ac, char **av)
 				break;
 			}
 			free(new_path);
-			free(dossier);
+			free(dossier_copy);
 		}
 		i++;
 		if (check_found == 0)
@@ -123,6 +59,7 @@ int main(int ac, char **av)
 			printf("Not found in PATH\n");
 		}
 	}
+
 	free_array(array_path);
 	return (0);
 }
