@@ -19,7 +19,8 @@ int main(int ac, char **av, char **env)
 		read = getline(&buffer, &len, stdin);
 		if (read != -1)
 		{
-			check_input(buffer);
+			if (check_input(buffer) == 1)
+			continue;
 			words = split_string(buffer, " \n");
 			if (words != NULL)
 			{
@@ -46,6 +47,7 @@ int main(int ac, char **av, char **env)
 		}
 		else
 		{
+			free(buffer);
 			printf("\n");
 			exit(0);
 		}
