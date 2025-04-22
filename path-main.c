@@ -5,6 +5,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include "main.h"
 
 /**
  * main - find file in path
@@ -17,14 +18,14 @@ int main(int argc, char *argv[])
 {
 	const char *name = "PATH";
 	char *path = getenv(name);
+	struct stat st;
+	int i = 0;
 
 	if (path == NULL)
 	return (-1);
 
 	char *path_copy = strdup(path);
 	char **paths = split_line(path_copy, ":");
-	struct stat st;
-	int i = 0;
 
 	for (i = 0; paths[i]; i++)
 	{
@@ -41,17 +42,18 @@ int main(int argc, char *argv[])
 		if (stat(argv[1], &st) == 0)
 		{
 			printf(" FOUND\n");
+			return (0);
 		}
 		else
 		{
 			printf(" NOT FOUND\n");
+			return (-1);
 		}
-		free(path_copy);
 	}
 
 	for (i = 0; paths[i]; i++)
 	free(paths[i]);
+	free(path_copy);
 	free(paths);
-
 	return (0);
 }

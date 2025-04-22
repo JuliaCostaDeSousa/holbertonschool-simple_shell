@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "main.h"
 
 /**
  * _getenv - search the environment list
@@ -10,13 +11,14 @@
 
 char *_getenv(const char *name)
 {
+	if (name == NULL)
+    return (NULL);
+
 	int i = 0;
-	extern char **environ;
 
 	while (environ[i] != NULL)
 	{
-		if (strncmp(environ[i], name, strlen(name)) == 0 &&
-		environ[i][strlen(name)] == '=')
+		if (strncmp(environ[i], name) == 0 && environ[i] == '=')
 		{
 			return (environ[i] + strlen(name) + 1);
 		}

@@ -24,7 +24,6 @@ char **split_line(char *input, char *separator)
 	tokens = malloc(bufsize * sizeof(char *));
 	if (tokens == NULL)
 	{
-		free(input);
 		return (NULL);
 	}
 
@@ -39,8 +38,7 @@ char **split_line(char *input, char *separator)
 			if (tokens == NULL)
 			{
 				for (j = 0; j < i; j++)
-				free(tokens);
-				free(input);
+				free(tokens[j]);
 				return (NULL);
 			}
 		}
@@ -51,8 +49,6 @@ char **split_line(char *input, char *separator)
 			for (j = 0; j < i; j++)
 			{
 				free(tokens[j]);
-				free(tokens);
-				free(input);
 				return (NULL);
 			}
 		}
@@ -62,5 +58,7 @@ char **split_line(char *input, char *separator)
 	}
 
 	tokens[i] = NULL;
+	free(tokens[i]);
+	free(input);
 	return (tokens);
 }

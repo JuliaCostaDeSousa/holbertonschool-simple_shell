@@ -4,10 +4,10 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include "main.h"
 
 /**
  * main - execute a mini shell
- *
  * Return: Always 0.
  */
 
@@ -18,7 +18,6 @@ int main(void)
 	ssize_t characters;
 	pid_t pid;
 	char *argv[2] = {buffer, NULL};
-	extern char **environ;
 	int status;
 
 	while (1)
@@ -34,12 +33,14 @@ int main(void)
 			if (pid == -1)
 			{
 				perror("Error:");
+				exit(EXIT_FAILURE);
 			}
 			else if (pid == 0)
 			{
 				if (execve(argv[0], argv, environ) == -1)
 				{
 					perror("Error:");
+
 				}
 			}
 			else
@@ -48,9 +49,7 @@ int main(void)
 			}
 		}
 		else
-		{
-			break;
-		}
+		break;
 	}
 	free(buffer);
 	return (0);
