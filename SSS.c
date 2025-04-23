@@ -27,7 +27,7 @@ int main(void)
 			if (check_input(buffer) == 1)
 			continue;
 			words = split_string(buffer, " \n");
-			if (words != NULL)
+			if (words != NULL && words[0] != NULL)
 			{
 				check_file(words, cmd_count, buffer);
 			}
