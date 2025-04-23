@@ -53,6 +53,7 @@ char *find_in_path(char **command_array)
 	for (j = 0; array_path[j] != NULL; j++)
 	{
 		new_path = build_path(array_path[j], command_array[0]);
+
 		if (new_path != NULL)
 		{
 			free(path_copy);
