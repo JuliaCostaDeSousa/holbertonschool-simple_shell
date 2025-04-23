@@ -4,13 +4,19 @@
 #include <string.h>
 
 /**
- * handle_exit - termine proprement le processus en libérant la mémoire
- * @buffer: pointeur vers la ligne de commande à libérer
+ * handle_exit - quitte le shell proprement
+ * @buffer: ligne de commande à libérer
+ * @words: tableau de mots à libérer
 */
 
-void handle_exit(char *buffer)
+void handle_exit(char *buffer, char **words)
 {
-	free(buffer);
+	if (buffer)
+		free(buffer);
+	if (words)
+		free_array(words);
+
 	exit(0);
 }
+
 
