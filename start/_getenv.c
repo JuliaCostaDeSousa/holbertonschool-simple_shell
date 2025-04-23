@@ -35,23 +35,3 @@ char *_getenv(const char *name)
 
 	return (NULL);
 }
-
-
-/**
- * main - getenv example
- *
- * Return: Always 0.
- */
-int main(int ac, char **av, char **env)
-{
-	const char *env_var_name = "LS_COLORS";
-	char *env_var_value = NULL;
-
-	env_var_value = _getenv(env_var_name);
-	if (env_var_value == NULL)
-	return (-1);
-	else
-	printf("%s = %s\n", env_var_name, env_var_value);
-
-	return (0);
-}

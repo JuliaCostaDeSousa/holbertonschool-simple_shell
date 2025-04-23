@@ -8,13 +8,21 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
+#include <errno.h>
 
 extern char **environ;
 
-char **split_string(char *buffer, char *delimiter);
+int check_input(char *buffer);
+void check_file(char **words, char **env, int cmd_count);
+void print_not_found(int cmd_count, char *cmd);
+void print_permission_denied(int cmd_count, char *cmd);
+void print_exec_format_error(int cmd_count, char *cmd);
+void fork_call(char **command_array, char **environnement, int cmd_count);
+char *_getenv(const char *name);
 void free_array(char **array);
-void print_env(void);
-void fork_call(char **command_array, char **environnement);
+char *build_path(char *path_dir, char *command);
 char *find_in_path(char **command_array, char **environnement);
+char **split_string(char *buffer, char *delimiter);
+void print_env(void);
 
 #endif

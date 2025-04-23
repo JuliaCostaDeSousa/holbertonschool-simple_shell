@@ -3,6 +3,7 @@
 /**
  * check_input - check if built-in
  * @buffer: user cmd
+ * Return: 0 if not built-in, 1 if built-in
  */
 
 int check_input(char *buffer)
@@ -16,5 +17,9 @@ int check_input(char *buffer)
 	{
 		handle_exit();
 	}
+
+	if (buffer[0] == '\n' || buffer[0] == '\0')
+	return (1);
+
 	return (0);
 }

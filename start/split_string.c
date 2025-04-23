@@ -14,7 +14,6 @@ char **split_string(char *buffer, char *delimiter)
 
 	if (buffer == NULL)
 	return (NULL);
-
 	temp_str = strdup(buffer);
 	if (temp_str == NULL)
 	return (NULL);
