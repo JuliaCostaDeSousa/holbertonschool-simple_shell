@@ -13,5 +13,6 @@ void handle_exit(char *buffer)
 {
 	if (buffer)
 		free(buffer);
+	printf("\n");
 	exit(0);
 }
