@@ -66,6 +66,5 @@ char *find_in_path(char **command_array)
 
 	free(path_copy);
 	free_array(array_path);
-	perror("Not found in PATH");
 	return (NULL);
 }

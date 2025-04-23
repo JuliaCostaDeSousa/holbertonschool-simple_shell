@@ -14,7 +14,6 @@ void fork_call(char **command_array, char **environnement, int cmd_count)
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		perror("Fork error");
 		return;
 	}
 	if (child_pid == 0)
