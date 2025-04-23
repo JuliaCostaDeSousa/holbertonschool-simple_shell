@@ -12,10 +12,18 @@ void check_file(char **words, char **env, int cmd_count, char *buffer)
 	struct stat st;
 	char *absolut_path = NULL;
 
-	if (stat(words[0], &st) == 0)
+	if (strchr(words[0], '/') != NULL)
 	{
-		fork_call(words, env, cmd_count, buffer);
-		free_array(words);
+		if (stat(words[0], &st) == 0)
+		{
+			fork_call(words, env, cmd_count, buffer);
+			free_array(words);
+		}
+		else
+		{
+			free_array(words);
+			print_not_found(cmd_count, buffer);
+		}
 	}
 	else
 	{
