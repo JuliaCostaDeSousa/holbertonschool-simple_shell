@@ -13,7 +13,7 @@ void check_file(char **words, char **env, int cmd_count)
 
 	if (stat(words[0], &st) == 0)
 	{
-		fork_call(words, env);
+		fork_call(words, env, cmd_count);
 		free_array(words);
 	}
 	else
@@ -21,7 +21,7 @@ void check_file(char **words, char **env, int cmd_count)
 		absolut_path = find_in_path(words, env);
 		if (absolut_path != NULL)
 		{
-			fork_call(absolut_path, env);
+			fork_call(absolut_path, env, cmd_count);
 			free_array(words);
 			free(absolut_path);
 		}
