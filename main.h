@@ -21,8 +21,9 @@ void fork_call(char **command_array, char **environnement, int cmd_count);
 char *_getenv(const char *name);
 void free_array(char **array);
 char *build_path(char *path_dir, char *command);
-char *find_in_path(char **command_array, char **environnement);
+char *find_in_path(char **command_array);
 char **split_string(char *buffer, char *delimiter);
 void print_env(void);
+void handle_exit(char *buffer);
 
 #endif

@@ -42,10 +42,9 @@ char *build_path(char *path_dir, char *command)
 /**
  * find_in_path - find if cmd file is in path
  * @command_array: user cmd
- * @environnement: env
  * Return: if found return new path else return NULL
  */
-char *find_in_path(char **command_array, char **environnement)
+char *find_in_path(char **command_array)
 {
 	char **array_path = NULL;
 	char *path = _getenv("PATH"), *new_path = NULL, *path_copy = NULL;
