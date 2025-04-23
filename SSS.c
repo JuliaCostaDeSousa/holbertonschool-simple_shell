@@ -5,9 +5,9 @@
  * Return: Always 0.
  */
 
-int main(int ac, char **av, char **env)
+int main(__attribute__((unused)) int ac,__attribute__((unused)) char **av, char **env)
 {
-	char *buffer = NULL, *absolut_path = NULL;
+	char *buffer = NULL;
 	char **words;
 	size_t len = 0;
 	ssize_t read;

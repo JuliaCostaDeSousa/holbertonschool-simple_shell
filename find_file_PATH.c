@@ -8,29 +8,17 @@
  */
 char *build_path(char *path_dir, char *command)
 {
-	char *new_path = NULL, *dossier = NULL;
+	char *new_path = NULL;
 	struct stat st;
 
 	if (path_dir == NULL || command == NULL)
 	return (NULL);
 
-	dossier = malloc(strlen(path_dir) + 2);
-	if (dossier == NULL)
+	new_path = malloc(strlen(path_dir) + strlen(command) + 2);
+	if (new_path == NULL)
 	return (NULL);
 
-	strcpy(dossier, path_dir);
-	strcat(dossier, "/");
-
-	new_path = malloc(strlen(dossier) + strlen(command) + 1);
-	if (new_path == NULL)
-	{
-		free(dossier);
-		return (NULL);
-	}
-
-	strcpy(new_path, dossier);
-	strcat(dossier, command);
-	free(dossier);
+	sprintf(new_path, "%s/%s", path_dir, command);
 
 	if (stat(new_path, &st) == 0)
 	return (new_path);
@@ -52,7 +40,7 @@ char *find_in_path(char **command_array)
 
 	if (path == NULL)
 	{
-		printf("La variable PATH n'est pas définie.");
+		perror("La variable PATH n'est pas définie.");
 		return (NULL);
 	}
 
@@ -78,7 +66,6 @@ char *find_in_path(char **command_array)
 
 	free(path_copy);
 	free_array(array_path);
-	perror("Error:");
-	printf("Not found in PATH\n");
+	perror("Not found in PATH");
 	return (NULL);
 }
