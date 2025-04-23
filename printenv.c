@@ -15,4 +15,5 @@ void print_env(void)
 	{
 		printf("%s\n", environ[i++]);
 	}
+	fflush(stdout);
 }

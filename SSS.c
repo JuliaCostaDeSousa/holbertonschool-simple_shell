@@ -22,7 +22,10 @@ int main(int ac, char **av, char **env)
 	while (1)
 	{
 		if (interactive)
+		{
 			printf("#cisfun$ ");
+			fflush(stdout);
+		}
 		read = getline(&buffer, &len, stdin);
 		if (read != -1)
 		{

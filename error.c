@@ -8,6 +8,7 @@
 void print_not_found(int cmd_count, char *cmd)
 {
 	fprintf(stderr, "./hsh: %d: %s: not found\n", cmd_count, cmd);
+	fflush(stderr);
 }
 
 /**
@@ -19,6 +20,7 @@ void print_not_found(int cmd_count, char *cmd)
 void print_permission_denied(int cmd_count, char *cmd)
 {
 	fprintf(stderr, "./hsh: %d: %s: Permission denied\n", cmd_count, cmd);
+	fflush(stderr);
 }
 
 /**
@@ -30,4 +32,5 @@ void print_permission_denied(int cmd_count, char *cmd)
 void print_exec_format_error(int cmd_count, char *cmd)
 {
 	fprintf(stderr, "./hsh: %d: %s: Exec format error\n", cmd_count, cmd);
+	fflush(stderr);
 }
