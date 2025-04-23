@@ -24,10 +24,9 @@ void print_permission_denied(char *cmd)
 /**
  * print_exec_format_error - Affiche une erreur si
  * le fichier n’est pas exécutable
- * @cmd_count: command count for error
  * @cmd: user command
  */
-void print_exec_format_error(int cmd_count, char *cmd)
+void print_exec_format_error(char *cmd)
 {
 	cmd[strcspn(cmd, "\n")] = '\0';
 	fprintf(stderr, "./hsh: %s: Exec format error\n", cmd);
