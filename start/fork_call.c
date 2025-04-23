@@ -1,0 +1,38 @@
+#include "main.h"
+/**
+ * fork_call - creation d'un processus enfant
+ * @command_array: array avec la commande utilisateur
+ * @environnement: environnement
+ * @cmd_count: command count for error
+ */
+
+void fork_call(char **command_array, char **environnement, int cmd_count)
+{
+	pid_t child_pid;
+	int status;
+
+	child_pid = fork();
+	if (child_pid == -1)
+	{
+		perror("Fork error");
+		return;
+	}
+	if (child_pid == 0)
+	{
+		if (execve(command_array[0], command_array, environnement) == -1)
+		{
+			if (errno == EACCES)
+			print_permission_denied(cmd_count, command_array[0]);
+			else if (errno == ENOEXEC)
+			print_exec_format_error(cmd_count, command_array[0]);
+			else
+			print_not_found(cmd_count, command_array[0]);
+
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
+	{
+		wait(&status);
+	}
+}
