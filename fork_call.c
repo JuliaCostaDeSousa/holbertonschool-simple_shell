@@ -18,13 +18,14 @@ void fork_call(char **command_array, char **environnement, int cmd_count)
 	}
 	if (child_pid == 0)
 	{
+		errno = 0;
 		if (execve(command_array[0], command_array, environnement) == -1)
 		{
 			if (errno == EACCES)
 			print_permission_denied(cmd_count, command_array[0]);
 			else if (errno == ENOEXEC)
 			print_exec_format_error(cmd_count, command_array[0]);
-			else
+			else if (errno == ENOENT)
 			print_not_found(cmd_count, command_array[0]);
 
 			exit(EXIT_FAILURE);
