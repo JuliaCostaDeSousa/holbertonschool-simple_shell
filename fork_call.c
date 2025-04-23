@@ -22,11 +22,11 @@ void fork_call(char **command_array, int cmd_count, char *buffer)
 		if (execve(command_array[0], command_array, environ) == -1)
 		{
 			if (errno == EACCES)
-			print_permission_denied(cmd_count, command_array[0]);
+			print_permission_denied(cmd_count, buffer);
 			else if (errno == ENOEXEC)
-			print_exec_format_error(cmd_count, command_array[0]);
+			print_exec_format_error(cmd_count, buffer);
 			else if (errno == ENOENT)
-			print_not_found(cmd_count, command_array[0]);
+			print_not_found(cmd_count, buffer);
 
 			exit(EXIT_FAILURE);
 		}
