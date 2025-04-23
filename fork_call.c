@@ -2,12 +2,11 @@
 /**
  * fork_call - creation d'un processus enfant
  * @command_array: array avec la commande utilisateur
- * @env: environnement
  * @cmd_count: command count for error
  * @buffer: commande user entière
  */
 
-void fork_call(char **command_array, char **env, int cmd_count, char *buffer)
+void fork_call(char **command_array, int cmd_count, char *buffer)
 {
 	pid_t child_pid;
 	int status;
@@ -20,7 +19,7 @@ void fork_call(char **command_array, char **env, int cmd_count, char *buffer)
 	if (child_pid == 0)
 	{
 		errno = 0;
-		if (execve(command_array[0], command_array, env) == -1)
+		if (execve(command_array[0], command_array, environ) == -1)
 		{
 			if (errno == EACCES)
 			print_permission_denied(cmd_count, command_array[0]);

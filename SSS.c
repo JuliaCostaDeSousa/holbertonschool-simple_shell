@@ -2,13 +2,10 @@
 
 /**
  * main - Super Simple Shell
- * @ac: arg number
- * @av: arg value
- * @env: env
  * Return: Always 0.
  */
 
-int main(int ac, char **av, char **env)
+int main(void)
 {
 	char *buffer = NULL;
 	char **words;
@@ -17,8 +14,6 @@ int main(int ac, char **av, char **env)
 	int interactive = isatty(STDIN_FILENO);
 	int cmd_count = 0;
 
-	(void)ac;
-	(void)av;
 	while (1)
 	{
 		if (interactive)
@@ -34,7 +29,7 @@ int main(int ac, char **av, char **env)
 			words = split_string(buffer, " \n");
 			if (words != NULL)
 			{
-				check_file(words, env, cmd_count, buffer);
+				check_file(words, cmd_count, buffer);
 			}
 		}
 		else
