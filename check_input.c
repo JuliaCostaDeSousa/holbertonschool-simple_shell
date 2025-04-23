@@ -20,15 +20,8 @@ int check_input(char *buffer)
 	{
 		handle_exit(buffer);
 	}
-	else if (strcmp(buffer, "^C\n") == 0)
-	{
-		handle_exit(buffer);
-	}
-	else if (strcmp(buffer, "^D\n") == 0)
-	{
-		handle_exit(buffer);
-	}
-	if (strlen(buffer) == 0 || buffer[0] == '\n' || buffer[0] == '\0' || buffer[0] == ' ')
+
+	if (buffer[0] == '\n' || buffer[0] == '\0' || buffer[0] == ' ')
 	return (1);
 
 	return (0);
