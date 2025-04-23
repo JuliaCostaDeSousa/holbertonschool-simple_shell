@@ -21,7 +21,7 @@ void check_file(char **words, int cmd_count, char *buffer)
 		else
 		{
 			free_array(words);
-			print_not_found(cmd_count, buffer);
+			print_not_found(cmd_count, words[0]);
 		}
 	}
 	else
@@ -36,7 +36,7 @@ void check_file(char **words, int cmd_count, char *buffer)
 		}
 		else
 		{
-			print_not_found(cmd_count, buffer);
+			print_not_found(cmd_count, words[0]);
 			free_array(words);
 		}
 	}

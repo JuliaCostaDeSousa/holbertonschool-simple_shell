@@ -26,7 +26,7 @@ void fork_call(char **command_array, int cmd_count, char *buffer)
 			else if (errno == ENOEXEC)
 			print_exec_format_error(cmd_count, command_array[0]);
 			else if (errno == ENOENT)
-			print_not_found(cmd_count, buffer);
+			print_not_found(cmd_count, command_array[0]);
 
 			exit(EXIT_FAILURE);
 		}
