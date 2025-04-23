@@ -31,8 +31,10 @@ Il prend en charge :
 ## Flowchart 
 ![flowchart simpleshell](https://github.com/JuliaCostaDeSousa/holbertonschool-simple_shell/blob/main/Flowchart%20-%20Simple%20Shell.jpg?raw=true)
 ___
-##man page
-[man page du shell]()
+
+## Man page
+[man_1_simple_shell](https://github.com/JuliaCostaDeSousa/holbertonschool-simple_shell/blob/main/man_1_simple_shell)
+
 ___
 
 ## 🛠️ Compilation
