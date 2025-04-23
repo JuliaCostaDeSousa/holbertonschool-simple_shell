@@ -7,7 +7,7 @@
  */
 char *_getenv(const char *name)
 {
-	int i = 0;
+	int i = 0, equal_index = 0;
 	char *var_nom = NULL, *var_valeur = NULL, *result = NULL, *env_copy = NULL;
 
 	if (name == NULL)
