@@ -17,6 +17,10 @@ int check_input(char *buffer)
 	{
 		handle_exit(buffer);
 	}
+	else if (strcmp(buffer, "^C\n") == 0)
+	{
+		handle_exit(buffer);
+	}
 
 	if (buffer[0] == '\n' || buffer[0] == '\0')
 	return (1);
