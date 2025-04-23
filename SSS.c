@@ -2,10 +2,13 @@
 
 /**
  * main - Super Simple Shell
+ * @ac: arg number
+ * @av: arg value
+ * @env: env
  * Return: Always 0.
  */
 
-int main(__attribute__((unused)) int ac,__attribute__((unused)) char **av, char **env)
+int main(int ac, char **av, char **env)
 {
 	char *buffer = NULL;
 	char **words;
@@ -14,6 +17,8 @@ int main(__attribute__((unused)) int ac,__attribute__((unused)) char **av, char 
 	int interactive = isatty(STDIN_FILENO);
 	int cmd_count = 0;
 
+	(void)ac;
+	(void)av;
 	while (1)
 	{
 		if (interactive)
