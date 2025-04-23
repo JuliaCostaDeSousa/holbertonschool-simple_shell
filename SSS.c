@@ -15,7 +15,6 @@ int main(int ac, char **av, char **env)
 	size_t len = 0;
 	ssize_t read;
 	int interactive = isatty(STDIN_FILENO);
-	int cmd_count = 0;
 
 	(void)ac;
 	(void)av;
@@ -28,13 +27,12 @@ int main(int ac, char **av, char **env)
 		read = getline(&buffer, &len, stdin);
 		if (read != -1)
 		{
-			cmd_count++;
 			if (check_input(buffer) == 1)
 			continue;
 			words = split_string(buffer, " \n");
 			if (words != NULL)
 			{
-				check_file(words, env, cmd_count, buffer);
+				check_file(words, env, buffer);
 			}
 		}
 		else
