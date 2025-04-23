@@ -24,11 +24,6 @@ int main(void)
 		if (read != -1)
 		{
 			cmd_count++;
-			if (strlen(buffer) > 1024)
-			{
-				fprintf(stderr, "%s : File name too long\n", buffer);
-				continue;
-			}
 			if (check_input(buffer) == 1)
 			continue;
 			words = split_string(buffer, " \n");
