@@ -34,7 +34,7 @@ int main(int ac, char **av, char **env)
 			words = split_string(buffer, " \n");
 			if (words != NULL)
 			{
-				check_file(words, env, cmd_count);
+				check_file(words, env, cmd_count, buffer);
 			}
 		}
 		else

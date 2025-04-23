@@ -6,7 +6,7 @@
  * @cmd_count: command count for error
  */
 
-void fork_call(char **command_array, char **environnement, int cmd_count)
+void fork_call(char **command_array, char **environnement, int cmd_count, char *buffer)
 {
 	pid_t child_pid;
 	int status;
@@ -26,7 +26,7 @@ void fork_call(char **command_array, char **environnement, int cmd_count)
 			else if (errno == ENOEXEC)
 			print_exec_format_error(cmd_count, command_array[0]);
 			else if (errno == ENOENT)
-			print_not_found(cmd_count, command_array[0]);
+			print_not_found(cmd_count, buffer);
 
 			exit(EXIT_FAILURE);
 		}
