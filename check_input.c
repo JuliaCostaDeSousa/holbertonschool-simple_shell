@@ -25,6 +25,8 @@ int check_input(char *buffer)
 	{
 		handle_exit(buffer);
 	}
+	if (buffer[0] == '\n' || buffer[0] == '\0')
+	return (1);
 
 	return (0);
 }
