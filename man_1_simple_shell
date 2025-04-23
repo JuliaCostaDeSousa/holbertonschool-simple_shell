@@ -1,0 +1,50 @@
+.TH simple_shell 1 "Avril 2025" "Version 1.0" "User Commands"
+.SH NAME
+simple_shell \- un interpréteur de commandes simple en C
+.SH SYNOPSIS
+.B simple_shell
+.SH DESCRIPTION
+.B simple_shell
+est un interpréteur de commandes simple qui lit les entrées de l'utilisateur, tente d'exécuter les commandes correspondantes, puis affiche un nouveau prompt pour attendre une autre commande. 
+
+Ce shell prend en charge les commandes sans arguments et gère les erreurs comme les commandes introuvables. Il implémente également deux commandes intégrées :
+   
+- \fIexit\fR : quitte le shell.
+- \fIenv\fR : affiche les variables d'environnement.
+   
+Le programme se termine lorsque l'utilisateur entre \fIexit\fR ou en appuyant sur Ctrl+D pour signaler la fin de fichier.
+
+Le shell ne gère pas les arguments ou les caractères spéciaux comme les guillemets, les redirections ou les pipes. Les commandes sont simples et ne prennent pas d'arguments.
+
+.SH OPTIONS
+Aucune option n'est prise en charge.
+
+.SH BUILT-IN COMMANDS
+.TP
+.B exit
+Quitte le shell.
+.TP
+.B env
+Affiche les variables d'environnement actuelles.
+
+.SH COMMANDS
+Les commandes peuvent être des programmes exécutables dans le répertoire courant. Si un programme ne peut pas être trouvé, le shell affiche un message d'erreur et réaffiche le prompt.
+
+.SH EXAMPLES
+.DS
+$ ./shell
+$ echo Hello
+$ env
+$ exit
+.DE
+
+.SH ENVIRONMENT
+Le shell est conçu pour passer l'environnement de l'utilisateur actuel à toutes les commandes exécutées via \fIexecve\fR.
+
+.SH SEE ALSO
+.BR execve (2), 
+.BR fork (2),
+.BR environ (7)
+
+.SH AUTHOR
+Développé par Julia Costa de Souza et Angela Rhin, dans le cadre du projet Shell.
