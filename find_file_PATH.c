@@ -39,10 +39,7 @@ char *find_in_path(char **command_array)
 	unsigned int j;
 
 	if (path == NULL)
-	{
-		perror("La variable PATH n'est pas définie.");
-		return (NULL);
-	}
+	return (NULL);
 
 	path_copy = strdup(path);
 	if (path_copy == NULL)
