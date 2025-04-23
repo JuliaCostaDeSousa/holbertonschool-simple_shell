@@ -24,6 +24,6 @@ char *build_path(char *path_dir, char *command);
 char *find_in_path(char **command_array);
 char **split_string(char *buffer, char *delimiter);
 void print_env(void);
-void handle_exit(char *buffer, char **words);
+void handle_exit(char *buffer);
 
 #endif

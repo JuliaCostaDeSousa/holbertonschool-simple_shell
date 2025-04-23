@@ -9,14 +9,9 @@
  * @words: tableau de mots à libérer
 */
 
-void handle_exit(char *buffer, char **words)
+void handle_exit(char *buffer)
 {
 	if (buffer)
 		free(buffer);
-	if (words)
-		free_array(words);
-
 	exit(0);
 }
-
-
