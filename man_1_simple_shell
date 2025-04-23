@@ -1,5 +1,5 @@
-.TH simple_shell 1 "Avril 2025" "Version 1.0" "User Commands"
-.SH NAME
+.TH simple_shell 1 "Avril 2025" "Holberton School" "Shell customisé"
+.SH NOM
 simple_shell \- un interpréteur de commandes simple en C
 .SH SYNOPSIS
 .B simple_shell
@@ -19,7 +19,7 @@ Le shell ne gère pas les arguments ou les caractères spéciaux comme les guill
 .SH OPTIONS
 Aucune option n'est prise en charge.
 
-.SH BUILT-IN COMMANDS
+.SH BUILT-IN COMMANDES
 .TP
 .B exit
 Quitte le shell.
@@ -27,21 +27,21 @@ Quitte le shell.
 .B env
 Affiche les variables d'environnement actuelles.
 
-.SH COMMANDS
+.SH COMMANDES
 Les commandes peuvent être des programmes exécutables dans le répertoire courant. Si un programme ne peut pas être trouvé, le shell affiche un message d'erreur et réaffiche le prompt.
 
-.SH EXAMPLES
+.SH EXEMPLES
 .DS
-$ ./shell
+$ ./hsh
 $ echo Hello
-$ env
-$ exit
+=> Sortie : Hello
 
-$ echo "ls" | ./shell
+$ echo "echo hello" | ./hsh
+=> Sortie : hello
 
 .DE
 
-.SH ENVIRONMENT
+.SH ENVIRONNEMENT
 Le shell est conçu pour passer l'environnement de l'utilisateur actuel à toutes les commandes exécutées via \fIexecve\fR.
 
 .SH SEE ALSO
@@ -49,5 +49,5 @@ Le shell est conçu pour passer l'environnement de l'utilisateur actuel à toute
 .BR fork (2),
 .BR environ (7)
 
-.SH AUTHOR
-Développé par Julia Costa de Souza et Angela Rhin, dans le cadre du projet Shell.
+.SH AUTEURS
+Développé par Julia Costa de Sousa et Angela Rhin, dans le cadre du projet Shell.
