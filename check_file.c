@@ -4,16 +4,17 @@
  * check_file - check if file exist
  * @words: user cmd
  * @env: environnement
+ * @cmd_count: command count for error print
  * @buffer: commande user entière
  */
-void check_file(char **words, char **env, char *buffer)
+void check_file(char **words, char **env, int cmd_count, char *buffer)
 {
 	struct stat st;
 	char *absolut_path = NULL;
 
 	if (stat(words[0], &st) == 0)
 	{
-		fork_call(words, env, buffer);
+		fork_call(words, env, cmd_count, buffer);
 		free_array(words);
 	}
 	else
@@ -23,12 +24,12 @@ void check_file(char **words, char **env, char *buffer)
 		{
 			free(words[0]);
 			words[0] = absolut_path;
-			fork_call(words, env, buffer);
+			fork_call(words, env, cmd_count, buffer);
 			free_array(words);
 		}
 		else
 		{
-			print_not_found(buffer);
+			print_not_found(cmd_count, buffer);
 			free_array(words);
 			exit(127);
 		}
