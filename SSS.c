@@ -2,7 +2,7 @@
 
 /**
  * main - Super Simple Shell
- * Return: Always 0.
+ * Return: Toujours 0.
  */
 
 int main(void)

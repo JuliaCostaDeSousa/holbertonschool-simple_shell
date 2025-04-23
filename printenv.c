@@ -4,7 +4,7 @@
 #include "main.h"
 
 /**
- * print_env - main
+ * print_env - affiche toutes les variables d'environnement
  */
 
 void print_env(void)

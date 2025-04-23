@@ -1,9 +1,9 @@
 #include "main.h"
 /**
  * fork_call - creation d'un processus enfant
- * @command_array: array avec la commande utilisateur
- * @cmd_count: command count for error
- * @buffer: commande user entière
+ * @command_array: array avec la commande utilisateur et les arguments
+ * @cmd_count: compteur de commande valide pour l'affichage des erreurs
+ * @buffer: commande rentrée par l'utilisateur
  */
 
 void fork_call(char **command_array, int cmd_count, char *buffer)

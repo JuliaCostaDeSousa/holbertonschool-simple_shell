@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * check_input - check if built-in
- * @buffer: user cmd
- * Return: 0 if not built-in, 1 if built-in
+ * check_input - check si la commande est un built-in
+ * @buffer: commande rentrée par l'utilisateur
+ * Return: 1 si c'est un built-in, autrement retourne 0
  */
 
 int check_input(char *buffer)

@@ -1,7 +1,7 @@
 #include "main.h"
 /**
- * free_array - free an array of str
- * @array: array to set free
+ * free_array - libère l'espace mémoire d'un tableau de char *
+ * @array: tableau de char * à libérer
  */
 void free_array(char **array)
 {

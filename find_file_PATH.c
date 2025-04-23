@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * build_path - build new path with command and check if exist
- * @path_dir:  directory of the path to check
- * @command: user command
- * Return: pointer to new_path if exist, else NULL
+ * build_path - construit le bon chemin de commande
+ * @path_dir:  chemin du path à vérifier
+ * @command: commande rentrée par l'utilisateur sans argument
+ * Return: le nouveau chemin avec la commande si existe, sinon retourne NULL
  */
 char *build_path(char *path_dir, char *command)
 {
@@ -28,9 +28,9 @@ char *build_path(char *path_dir, char *command)
 }
 
 /**
- * find_in_path - find if cmd file is in path
- * @command_array: user cmd
- * Return: if found return new path else return NULL
+ * find_in_path - vérifie si la commande est un executable du path
+ * @command_array: commande rentrée par l'utilisateur sans argument
+ * Return: le nouveau chemin avec la commande si trouvé, sinon retourne NULL
  */
 char *find_in_path(char **command_array)
 {

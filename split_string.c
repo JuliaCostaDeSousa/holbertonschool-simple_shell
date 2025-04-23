@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * split_string - split a string
- * @buffer: string to split
- * @delimiter: delimiter
- * Return: array of words
+ * split_string - Parse une chaine de characteres
+ * @buffer: chaine de characteres à parser
+ * @delimiter: delimiteur
+ * Return: tableau de chaine de characteres
  */
 char **split_string(char *buffer, char *delimiter)
 {

@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * check_file - check if file exist
- * @words: user cmd
- * @cmd_count: command count for error print
- * @buffer: commande user entière
+ * check_file - check si le fichier executable associé à la commande existe
+ * @words: tableau de la commande utilisateur parsée
+ * @cmd_count: compteur de commande valide pour l'affichage des erreurs
+ * @buffer: commande utilisateur entière
  */
 void check_file(char **words, int cmd_count, char *buffer)
 {
