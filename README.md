@@ -29,7 +29,7 @@ Il prend en charge :
 ---
 
 ## Flowchart 
-![flowchart simpleshell](https://github.com/JuliaCostaDeSousa/holbertonschool-simple_shell/blob/main/Flowchart%20-%20Simple%20Shell.jpg?raw=true)
+![flowchart simpleshell](https://github.com/JuliaCostaDeSousa/holbertonschool-simple_shell/blob/main/flowchart-shell.png?raw=true)
 ___
 
 ## Man page
