@@ -8,6 +8,9 @@
 
 int check_input(char *buffer)
 {
+	if (buffer == NULL)
+	exit(EXIT_SUCCESS);
+
 	if (strcmp(buffer, "env\n") == 0)
 	{
 		print_env();
