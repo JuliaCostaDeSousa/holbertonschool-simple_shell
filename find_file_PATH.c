@@ -47,6 +47,7 @@ char *find_in_path(char **command_array)
 	array_path = split_string(path_copy, ":");
 	if (array_path == NULL)
 	{
+		free(path);
 		free(path_copy);
 		return (NULL);
 	}
@@ -56,12 +57,13 @@ char *find_in_path(char **command_array)
 
 		if (new_path != NULL)
 		{
+			free(path);
 			free(path_copy);
 			free_array(array_path);
 			return (new_path);
 		}
 	}
-
+	free(path);
 	free(path_copy);
 	free_array(array_path);
 	return (NULL);

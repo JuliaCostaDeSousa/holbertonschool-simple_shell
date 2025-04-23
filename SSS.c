@@ -42,7 +42,7 @@ int main(int ac, char **av, char **env)
 			free(buffer);
 			if (interactive)
 			printf("\n");
-			exit(EXIT_FAILURE);
+			exit(EXIT_SUCCESS);
 		}
 		free(buffer);
 		buffer = NULL;

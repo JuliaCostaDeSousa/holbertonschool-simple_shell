@@ -30,6 +30,7 @@ void check_file(char **words, char **env, int cmd_count)
 		{
 			print_not_found(cmd_count, words[0]);
 			free_array(words);
+			exit(127);
 		}
 	}
 }
