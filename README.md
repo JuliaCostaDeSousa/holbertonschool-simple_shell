@@ -28,6 +28,13 @@ Il prend en charge :
 
 ---
 
+## Flowchart 
+![flowchart simpleshell] ()
+___
+##man page
+[man page du shell]()
+___
+
 ## 🛠️ Compilation
 
 Utilisez la commande suivante pour compiler tous les fichiers sources :
@@ -48,16 +55,19 @@ Lancez le shell de manière classique :
 Exemple :
 ```bash
 $ ./hsh
-#cisfun$ ls
-#cisfun$ exit
+#cisfun$ echo hello
+hello
+#cisfun$
 ```
 
 ### 📡 Mode non interactif (pipe ou redirection)
 
 Vous pouvez également passer des commandes au shell via un pipe :
 ```bash
-echo "ls" | ./hsh
+echo "echo hello" | ./hsh
+hello
 ```
+
 
 ## 💬 Commandes prises en charge
 
@@ -76,6 +86,13 @@ Exemples de commandes exécutables :
 - `perror()`	Affiche une erreur sur la sortie standard d’erreurs
 ---
 
+## 🔍 Fonctions internes notables
+
+- `check_input()` : Analyse l'entrée utilisateur (par exemple pour `exit` ou `env`)
+- `split_string()` : Sépare une ligne en mots (utilise `strtok`)
+- `check_file()` : Vérifie si une commande est exécutable, si oui, l’exécute avec `execve()`
+___
+
 ## 🧠 Vérification des fuites mémoire
 
 Pour vérifier qu’il n’y a pas de fuite mémoire, utilisez Valgrind :
@@ -90,11 +107,5 @@ ___
 Le shell utilise la variable globale `environ` pour accéder et passer les variables d'environnement à `execve()`.
 ___
 
-## ✅ Conclusion
-Ce mini-shell constitue une base solide pour comprendre :
-
-- La création et gestion de processus
-- L’exécution de commandes
-- L’interaction avec l’environnement système
-
-C’est un excellent projet pour apprendre les mécanismes internes d’un shell UNIX.
+## Auteurs : 
+Projet réalisé par Julia Costa de Sousa et Angela Rhin.
