@@ -5,7 +5,6 @@
 
 /**
  * print_env - main
- * Return: always 0
  */
 
 void print_env(void)
