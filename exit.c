@@ -9,5 +9,5 @@ void handle_exit(char *buffer)
 {
 	if (buffer)
 	free(buffer);
-	exit(exit_code);
+	exit(EXIT_SUCCESS);
 }
