@@ -38,7 +38,7 @@ int main(void)
 			free(buffer);
 			if (interactive)
 			printf("\n");
-			exit(EXIT_SUCCESS);
+			exit(exit_code);
 		}
 		free(buffer);
 		buffer = NULL;

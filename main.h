@@ -11,6 +11,7 @@
 #include <errno.h>
 
 extern char **environ;
+extern int exit_code;
 
 int check_input(char *buffer);
 void check_file(char **words, int cmd_count, char *buffer);
