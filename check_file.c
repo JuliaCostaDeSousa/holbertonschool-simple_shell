@@ -17,11 +17,13 @@ void check_file(char **words, int cmd_count, char *buffer)
 		{
 			fork_call(words, cmd_count, buffer);
 			free_array(words);
+			free(buffer);
 		}
 		else
 		{
 			free_array(words);
 			print_not_found(cmd_count, buffer);
+			free(buffer);
 		}
 	}
 	else
@@ -33,11 +35,13 @@ void check_file(char **words, int cmd_count, char *buffer)
 			words[0] = absolut_path;
 			fork_call(words, cmd_count, buffer);
 			free_array(words);
+			free(buffer);
 		}
 		else
 		{
 			print_not_found(cmd_count, buffer);
 			free_array(words);
+			free(buffer);
 		}
 	}
 }
